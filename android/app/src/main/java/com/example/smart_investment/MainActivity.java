@@ -1,4 +1,4 @@
-package com.example.smart_investment;
+package com.mobilecrew.smartinvestment;
 
 import io.flutter.embedding.android.FlutterActivity;
 

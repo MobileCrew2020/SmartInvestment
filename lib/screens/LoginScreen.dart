@@ -1,3 +1,6 @@
+import 'package:SmartInvestment/controllers/gmail_sign_in.dart';
+import 'package:SmartInvestment/controllers/sign_up_firebase.dart';
+import 'package:SmartInvestment/controllers/valid_signed.dart';
 import 'package:flutter/material.dart';
 import './SignUpScreen.dart';
 import './MenuScreen.dart';
@@ -199,42 +202,69 @@ class LoginScreen extends StatelessWidget {
                         Row(
                           children: <Widget>[
                             Expanded(
-                              child: Container(
-                                height: 45,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: Colors.blue[700]),
-                                child: Center(
-                                  child: Text(
-                                    "Facebook",
-                                    style: TextStyle(
-                                        fontSize: 15,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold),
+                              child: GestureDetector(
+                                child: Container(
+                                  height: 45,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      color: Colors.blue[700]),
+                                  child: Center(
+                                    child: Text(
+                                      "Facebook",
+                                      style: TextStyle(
+                                          fontSize: 15,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                    ),
                                   ),
                                 ),
+                                onTap: () {
+                                  print("Facebook Tapped");
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => FacebookLogin()),
+                                  );
+                                },
                               ),
                             ), // Facebook
                             SizedBox(
                               width: 40,
                             ),
                             Expanded(
-                              child: Container(
-                                height: 45,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: Colors.red[700]),
-                                child: Center(
-                                  child: Text(
-                                    "Gmail",
-                                    style: TextStyle(
-                                        fontSize: 15,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold),
+                              child: GestureDetector(
+                                child: Container(
+                                  height: 45,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      color: Colors.red[700]),
+                                  child: Center(
+                                    child: Text(
+                                      "Gmail",
+                                      style: TextStyle(
+                                          fontSize: 15,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                    ),
                                   ),
                                 ),
+                                onTap: () {
+                                  print(
+                                      "Gmail Tapped"); // handle your onTap here
+                                  signInWithGoogle().then((result) {
+                                    if (result != null) {
+                                      Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                          builder: (context) {
+                                            return FirstScreen();
+                                          },
+                                        ),
+                                      );
+                                    }
+                                  });
+                                },
                               ),
-                            ) // Gmail
+                            ), // Gmail
                           ],
                         ), //Gmail+Facebook
                       ],

@@ -1,23 +1,30 @@
 name: SmartInvestment
 description: A new Flutter project.
-
 version: 1.0.0+1
-
 environment:
   sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-
   # The following adds the Cupertino Icons font to your application.  Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^0.1.2
-  #MySql database package
-  mysql1: ^0.17.1
+  cupertino_icons: any
   # News_Bottom Page dependencies
   bubble_bottom_bar: ^1.2.0
   flutter_svg:
   rename: ^1.2.0
+
+  # ==> FLUTTER FIREBASE
+  firebase_auth: ^0.18.4+1
+  firebase_core: ^0.5.3
+  cloud_firestore: ^0.14.4
+  google_sign_in: ^4.5.6
+  firebase_storage: any
+  firebase_analytics: any
+  flutter_signin_button: ^1.1.0
+  flutter_facebook_login: ^3.0.0
+  dcdg: ^2.0.1
+
 
 dev_dependencies:
   flutter_test:

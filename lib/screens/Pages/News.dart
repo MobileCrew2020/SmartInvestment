@@ -1,97 +1,84 @@
 import 'package:flutter/material.dart';
+import './news/constants.dart';
+import './news/NewsArticle.dart';
+import './news/WebService.dart';
 
-class News extends StatefulWidget {
+void main() => runApp(News());
+
+class News extends StatelessWidget {
   @override
-  _NewsState createState() {
-    return _NewsState();
+  Widget build(BuildContext context) {
+    return MaterialApp(home: MainPage());
   }
 }
 
-class _NewsState extends State {
-  bool _isVisible = true;
+class MainPage extends StatefulWidget {
+  @override
+  _MainPageState createState() => _MainPageState();
+}
 
-  void showToast() {
-    setState(() {
-      _isVisible = !_isVisible;
-    });
+class _MainPageState extends State<MainPage> {
+  // ignore: deprecated_member_use
+  List<NewsArticle> _newsArticles = List<NewsArticle>();
+
+  @override
+  void initState() {
+    super.initState();
+    _populateNewsArticles();
+  }
+
+  void _populateNewsArticles() {
+    Webservice().load(NewsArticle.all).then((newsArticles) => {
+          setState(() => {_newsArticles = newsArticles})
+        });
   }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-          body: Padding(
-        padding: EdgeInsets.all(15.0),
-        child: new Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Card(
-              child: new ListTile(
-                title: Center(
-                  child: new Text(
-                      'Sağlık Bakanlığı, 80 kelimelik "Koronavirüs Sözlüğü" hazırladı'),
-                ),
-              ),
-            ),
-            Visibility(
-              visible: _isVisible,
-              child: Card(
-                child: new ListTile(
-                  title: Center(
-                    child: new Text('Dolar 8 TL’den uzaklaşamıyor'),
+    return Scaffold(
+      body: ListView.builder(
+          physics: BouncingScrollPhysics(),
+          itemCount: _newsArticles.length,
+          itemBuilder: (context, position) {
+            return Container(
+              padding: const EdgeInsets.all(20),
+              margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10.0),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.grey[200],
+                        blurRadius: 4.0,
+                        spreadRadius: 3.5,
+                        offset: Offset(0.0, 2)),
+                  ]),
+              child: Row(
+                children: <Widget>[
+                  CircleAvatar(
+                    radius: 40,
+                    backgroundImage:
+                        NetworkImage(_newsArticles[position].urlToImage),
                   ),
-                ),
+                  XMargin(30),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          _newsArticles[position].title,
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.start,
+                        ),
+                        YMargin(10),
+                        Text(_newsArticles[position].descrption)
+                      ],
+                    ),
+                  )
+                ],
               ),
-            ),
-            Card(
-              child: new ListTile(
-                title: Center(
-                  child: new Text('Şekerbank sermayesini %60 oranında artırdı'),
-                ),
-              ),
-            ),
-            Card(
-              child: new ListTile(
-                title: Center(
-                  child: new Text(
-                      ' Bitcoin’in durdurulamaz yükselişine 5 uzman yorumu'),
-                ),
-              ),
-            ),
-            Card(
-              child: new ListTile(
-                title: Center(
-                  child: new Text('Açığa satışçılar borsadan kaçıyo'),
-                ),
-              ),
-            ),
-            Card(
-              child: new ListTile(
-                title: Center(
-                  child: new Text(
-                      ' BDDKdan normalleşme adımı: Aktif rasyosu kalktı'),
-                ),
-              ),
-            ),
-            Card(
-              child: new ListTile(
-                title: Center(
-                  child: new Text(
-                      'Hazineden ihaleler öncesi 3,1 milyar TL ROT satış'),
-                ),
-              ),
-            ),
-            Card(
-              child: new ListTile(
-                title: Center(
-                  child: new Text(
-                      ' Bakır fiyatları, 2014ten beri en yüksek seviyede'),
-                ),
-              ),
-            ),
-          ],
-        ),
-      )),
+            );
+          }),
     );
   }
 }

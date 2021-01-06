@@ -15,4 +15,24 @@
     <style name="NormalTheme" parent="@android:style/Theme.Black.NoTitleBar">
         <item name="android:windowBackground">@android:color/white</item>
     </style>
+
+    <!--
+    <string name="app_name">smartinvestment-gtu2020</string>
+    -->
+    <!-- Replace "000000000000" with your Facebook App ID here. -->
+    <!--
+    <string name="facebook_app_id">12889917051298106</string>
+    -->
+    <!--
+    <string name="facebook_app_id">1:987513450214:android:523c5f2864f990e4201527</string>
+    -->
+    <!--
+      Replace "000000000000" with your Facebook App ID here.
+      **NOTE**: The scheme needs to start with `fb` and then your ID.
+    -->
+    <!--
+    <string name="fb_login_protocol_scheme">fb2889917051298106</string>
+
+    <string name="fb_login_protocol_scheme">fb1:987513450214:android:523c5f2864f990e4201527</string>
+    -->
 </resources>

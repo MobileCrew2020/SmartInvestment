@@ -1,14 +1,16 @@
+import 'package:smart_investment/controllers/auth/AuthenticationService.dart';
 import 'package:smart_investment/controllers/auth/reset_password.dart';
 import 'package:smart_investment/controllers/facebook_login.dart';
 import 'package:smart_investment/controllers/gmail_sign_in.dart';
 import 'package:smart_investment/controllers/sign_up_firebase.dart';
-import 'package:smart_investment/controllers/auth/login.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_investment/controllers/valid_google_signed.dart';
+import 'package:provider/provider.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreenZ extends StatelessWidget {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,6 +81,7 @@ class LoginScreen extends StatelessWidget {
                                         bottom: BorderSide(
                                             color: Colors.teal.shade100))),
                                 child: TextField(
+                                  controller: emailController,
                                   decoration: InputDecoration(
                                       hintText: "Email",
                                       hintStyle: TextStyle(
@@ -96,6 +99,7 @@ class LoginScreen extends StatelessWidget {
                                             color: Colors.teal.shade100))),
                                 child: TextField(
                                   obscureText: true,
+                                  controller: passwordController,
                                   decoration: InputDecoration(
                                       hintText: "Password",
                                       hintStyle: TextStyle(
@@ -140,13 +144,10 @@ class LoginScreen extends StatelessWidget {
                           color: Colors.greenAccent[400],
                           onPressed: () {
                             print("Login Pressed"); // handle your onTap here
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => Login(
-                                      auth: _auth, firestore: _firestore)),
-                              //builder: (context) => MenuScreen()),
-                            );
+                            context.read<AuthenticationService>().signIn(
+                                  email: emailController.text.trim(),
+                                  password: passwordController.text.trim(),
+                                );
                           },
                           icon: Icon(Icons.login, size: 30),
                           label: Text(
@@ -282,6 +283,3 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
-
-final FirebaseAuth _auth = FirebaseAuth.instance;
-final FirebaseFirestore _firestore = FirebaseFirestore.instance;

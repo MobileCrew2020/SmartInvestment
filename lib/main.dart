@@ -1,7 +1,7 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'screens/LoginScreen.dart';
 import 'dart:async';
-import 'package:firebase_core/firebase_core.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -11,7 +11,3 @@ Future main() async {
     home: LoginScreen(),
   ));
 }
-
-/*
-void main() => runApp();
-*/

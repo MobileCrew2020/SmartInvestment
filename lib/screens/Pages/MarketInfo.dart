@@ -5,7 +5,6 @@ class MarketInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: 'MARKET INFO',
       theme: ThemeData(primarySwatch: Colors.blueGrey),
       home: MarketInfoPage(title: 'MARKET INFO'),
@@ -42,6 +41,7 @@ class _MarketInfoPageState extends State<MarketInfoPage> {
     'Anadolu Efes',
     'TOFAŞ'
   ];
+  // ignore: deprecated_member_use
   var items = List<String>();
 
   @override
@@ -51,9 +51,11 @@ class _MarketInfoPageState extends State<MarketInfoPage> {
   }
 
   void filterSearchResults(String query) {
+    // ignore: deprecated_member_use
     List<String> dummySearchList = List<String>();
     dummySearchList.addAll(company);
     if (query.isNotEmpty) {
+      // ignore: deprecated_member_use
       List<String> dummyListData = List<String>();
       dummySearchList.forEach((item) {
         if (item.contains(query)) {

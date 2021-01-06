@@ -13,7 +13,7 @@ class MenuScreen extends StatelessWidget {
 }
 
 class MenuScreenPage extends StatefulWidget {
-  MenuScreenPage({Key key}) : super(key: key);
+  MenuScreenPage({key}) : super(key: key);
 
   @override
   _MenuScreenPageState createState() => _MenuScreenPageState();
@@ -39,11 +39,20 @@ class _MenuScreenPageState extends State<MenuScreenPage> {
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-              icon: Icon(Icons.reorder), title: Text('Watchlist')),
+              // ignore: deprecated_member_use
+              icon: Icon(Icons.reorder),
+              // ignore: deprecated_member_use
+              title: Text('Watchlist')),
           BottomNavigationBarItem(
-              icon: Icon(Icons.list_alt_rounded), title: Text('Market Info')),
+              // ignore: deprecated_member_use
+              icon: Icon(Icons.list_alt_rounded),
+              // ignore: deprecated_member_use
+              title: Text('Market Info')),
           BottomNavigationBarItem(
-              icon: Icon(Icons.language), title: Text('News'))
+              // ignore: deprecated_member_use
+              icon: Icon(Icons.language),
+              // ignore: deprecated_member_use
+              title: Text('News'))
         ],
         currentIndex: _selectedItem,
         onTap: (index) {

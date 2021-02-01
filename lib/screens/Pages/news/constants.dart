@@ -40,3 +40,12 @@ class Constants {
 
 // TR-business-NEWS
 // https://newsapi.org/v2/top-headlines?country=tr&apiKey=75a41eef631a4460999c101849caf95c
+
+// Top technology headlines from Turkey
+// http://newsapi.org/v2/top-headlines?country=tr&category=technology&apiKey=75a41eef631a4460999c101849caf95c
+
+// Top business headlines from Turkey
+// http://newsapi.org/v2/top-headlines?country=tr&category=business&apiKey=75a41eef631a4460999c101849caf95c
+
+// Top business headlines from United States
+// http://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=75a41eef631a4460999c101849caf95c

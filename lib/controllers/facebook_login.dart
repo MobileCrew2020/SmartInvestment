@@ -115,9 +115,7 @@ class _MyAppState extends State<FaceLogin> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Facebook Auth Example'),
-        ),
+        appBar: AppBar(),
         body: _checking
             ? Center(
                 child: CircularProgressIndicator(),
@@ -130,14 +128,14 @@ class _MyAppState extends State<FaceLogin> {
                     children: <Widget>[
                       Text(
                         _userData != null
-                            ? prettyPrint(_userData)
+                            ? "\n\n\nLOGGED In Successfully"
                             : "\n\n\nNO LOGGED",
                       ),
                       SizedBox(height: 20),
                       _accessToken != null
-                          ? Text(
-                              prettyPrint(_accessToken.toJson()),
-                            )
+                          ? Text(""
+                              //prettyPrint(_accessToken.toJson()),
+                              )
                           : Container(),
                       SizedBox(height: 20),
                       CupertinoButton(
@@ -163,7 +161,7 @@ class _MyAppState extends State<FaceLogin> {
                               },
                               icon: Icon(
                                 Icons.login,
-                                size: 20,
+                                size: 40,
                                 color: Colors.white,
                               ),
                               label: Text("MENU"),

@@ -1,25 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:smart_investment/Market_Info.dart';
 import './MarketInfo.dart';
 import './News.dart';
+import 'Watchlist.dart';
 
 class FirstPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text(
-          '   _WATCHLIST PAGE_\n\n   Favorite Markets will be shown here.',
-          style: TextStyle(fontSize: 30.0, fontStyle: FontStyle.italic),
-        ),
-      ),
-    );
+    return Watchlist();
   }
 }
 
 class SecondPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MarketInfo();
+    return Market_Info();
   }
 }
 

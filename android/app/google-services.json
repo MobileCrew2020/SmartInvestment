@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "987513450214",
+    "firebase_url": "https://smartinvestment-gtu2020.firebaseio.com",
+    "project_id": "smartinvestment-gtu2020",
+    "storage_bucket": "smartinvestment-gtu2020.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:987513450214:android:523c5f2864f990e4201527",
+        "android_client_info": {
+          "package_name": "com.mobilecrew.smartinvestment"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "987513450214-h9i5iknkt8btbodpn9q5nqlr9h57alhm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mobilecrew.smartinvestment",
+            "certificate_hash": "38319067f402b3e804c2e29502db2d1627ed147f"
+          }
+        },
+        {
+          "client_id": "987513450214-ag4uj44jm68jmqrn1n3s3ni2f3pkam31.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhCsjFWNQtpJf8a__65gVrDNYW3Vg14bg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "987513450214-ag4uj44jm68jmqrn1n3s3ni2f3pkam31.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

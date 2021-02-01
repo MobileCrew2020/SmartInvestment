@@ -20,7 +20,7 @@ class MenuScreenPage extends StatefulWidget {
 }
 
 class _MenuScreenPageState extends State<MenuScreenPage> {
-  int _selectedItem = 0;
+  int _selectedItem = 1;
   var _pages = [FirstPage(), SecondPage(), ThirdPage()];
   var _pageController = PageController();
 
